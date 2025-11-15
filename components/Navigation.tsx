@@ -28,10 +28,10 @@ export const Navigation = () => {
             Home
           </Link>
           <Link
-            href="/app"
+            href="/login"
             className="text-white/80 hover:text-white transition-colors hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]"
           >
-            App
+            Login
           </Link>
           <a
             href="#gallery"
@@ -59,8 +59,8 @@ export const Navigation = () => {
             <Link href="/" className="block text-white/80 hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
               Home
             </Link>
-            <Link href="/app" className="block text-white/80 hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
-              App
+            <Link href="/login" className="block text-white/80 hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+              Login
             </Link>
             <a href="#gallery" className="block text-white/80 hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
               Gallery

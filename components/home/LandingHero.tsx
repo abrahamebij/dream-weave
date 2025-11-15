@@ -12,8 +12,8 @@ export const LandingHero = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/app"
-            className="px-8 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-500 hover:to-pink-500 transition-all transform hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]"
+            href="/login"
+            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-500 hover:to-pink-500 transition-all transform hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]"
           >
             Start Dreaming
           </Link>

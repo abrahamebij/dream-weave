@@ -3,8 +3,6 @@
 import { useState } from 'react';
 import { Hero } from '@/components/home/Hero';
 import { DreamResult } from '@/components/home/DreamResult';
-import { Navigation } from '@/components/Navigation';
-import { StarField } from '@/components/StarField';
 import { GasFeeModal } from '@/components/GasFeeModal';
 
 const App = () => {
@@ -31,10 +29,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-dream-main relative overflow-hidden">
-      <StarField />
-      <Navigation />
-      
+    <>
       <main className="relative z-10">
         {!showResult ? (
           <Hero 
@@ -53,7 +48,7 @@ const App = () => {
         onConfirm={handleGasConfirm}
         onCancel={handleGasCancel}
       />
-    </div>
+    </>
   );
 };
 
