@@ -1,36 +1,33 @@
 import { SDK } from "@somnia-chain/streams"
 import { createPublicClient, createWalletClient, http } from 'viem'
-import { privateKeyToAccount } from "viem/accounts";
 import { somniaTestnet } from 'viem/chains'
-import { getPrivateKey } from "./server";
 
-export const gameSchema = 
-  "string runId, uint256 finalScore, uint32 finalLevelReached, uint32 timeSurvived, uint32 totalKills, uint32 totalUpgrades, string buildJson, string killCountJson, string player";
+export const schema =
+  "uint64 timestamp, string dream, string tags, string interpretation, string color";
 
-export async function initSomnia() {
+export async function initSomnia(walletAddress: `0x${string}`) {
+  // const session = await getSession()
+
   const publicClient = createPublicClient({
     chain: somniaTestnet,
     transport: http(somniaTestnet.rpcUrls.default.http[0])
   });
 
-  const adminAccount = privateKeyToAccount(await getPrivateKey());
-
-  const adminWalletClient = createWalletClient({
-    account: adminAccount,
+  const walletClient = createWalletClient({
     chain: somniaTestnet,
     transport: http(somniaTestnet.rpcUrls.default.http[0]),
   });
 
   const sdk = new SDK({
     public: publicClient,
-    wallet: adminWalletClient,
+    wallet: walletClient,
   });
 
-  const schemaId = await sdk.streams.computeSchemaId(gameSchema);
+  const schemaId = await sdk.streams.computeSchemaId(schema) as `0x${string}`;
   const nonce = await publicClient.getTransactionCount({
-    address: adminAccount.address,
+    address: walletAddress,
     blockTag: 'pending',
   });
 
-  return { sdk, schemaId, nonce, gameSchema };
+  return { sdk, schemaId, nonce, schema };
 }

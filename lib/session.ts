@@ -1,5 +1,5 @@
-import { getIronSession, SessionOptions } from 'iron-session';
-import { cookies } from 'next/headers';
+import { SessionOptions } from 'iron-session';
+
 
 // 1. Define the shape of your session data
 // This is where you can add whatever you want to store
@@ -18,12 +18,3 @@ export const sessionOptions = {
     secure: false, // Use this for local development (HTTP)
   },
 };
-
-// 3. Create a helper function to get the session
-// This uses the Next.js 14 App Router `cookies()` function
-export async function getSession() {
-  "use server"
-  const session = await getIronSession<SessionData>(await cookies(), { ...sessionOptions, password: process.env.SECRET_COOKIE_PASSWORD! });
-  // console.log('session: ', session);
-  return session;
-}

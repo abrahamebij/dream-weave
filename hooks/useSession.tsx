@@ -8,7 +8,7 @@ import { toast } from "sonner";
 
 // --- Helper Fetch Function ---
 // A simple wrapper for fetch that handles errors and JSON
-const apiFetch = async (url: string, options: RequestInit = {}) => {
+export const apiFetch = async (url: string, options: RequestInit = {}) => {
   const res = await fetch(url, {
     headers: {
       "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 "use server"
 import { NextResponse } from 'next/server';
-import { getSession } from '@/lib/session'; // Assumes lib/session.ts exists
+import { getSession } from '@/lib/server'; // Assumes lib/session.ts exists
 
 /**
  * @route GET /api/auth/nonce
@@ -12,7 +12,7 @@ export async function GET() {
     const session = await getSession();
 
     // Create a unique, time-stamped message for the user to sign
-    const message = `Sign in to Aegis Assault: ${Date.now()}`;
+    const message = `Sign in to DreamWeave: ${Date.now()}`;
 
     // Store this exact message in the session, so we can verify it later
     // This prevents "replay attacks"

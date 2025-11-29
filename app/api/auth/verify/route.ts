@@ -1,6 +1,6 @@
 "use server"
 import { NextResponse } from 'next/server';
-import { getSession } from '@/lib/session'; // Adjust path if needed
+import { getSession } from '@/lib/server'; // Adjust path if needed
 import { verifyMessage } from 'viem';
 
 export async function POST(request: Request) {

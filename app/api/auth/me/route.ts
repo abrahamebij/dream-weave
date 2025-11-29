@@ -1,6 +1,6 @@
 "use server"
+import { getSession } from '@/lib/server';
 import { NextResponse } from 'next/server';
-import { getSession } from '@/lib/session'; // Assumes lib/session.ts exists
 
 /**
  * @route GET /api/auth/me

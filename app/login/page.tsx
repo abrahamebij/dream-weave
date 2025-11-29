@@ -22,7 +22,7 @@ const Login = () => {
 
   useEffect(() => {
     if (session?.isLoggedIn) {
-      router.push("/app");
+      router.push("/dream");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session]);

@@ -23,7 +23,25 @@ export const Hero = ({ dreamText, setDreamText, onVisualize, isLoading }: HeroPr
             className="w-full h-40 p-6 bg-black/30 backdrop-blur-md border border-white/10 rounded-2xl text-white placeholder-white/40 resize-none focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-transparent transition-all"
             disabled={isLoading}
           />
-          <div className="absolute inset-0 bg-linear-to-r from-purple-500/20 to-pink-500/20 rounded-2xl pointer-events-none opacity-0 hover:opacity-100 transition-opacity" />
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl pointer-events-none opacity-0 hover:opacity-100 transition-opacity" />
+          
+          {dreamText.trim() && (
+            <div className="mt-4 bg-black/20 backdrop-blur-sm border border-white/10 rounded-lg p-4">
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-white/70">Estimated Gas Fee:</span>
+                <span className="text-purple-400 font-semibold">
+                  {dreamText.length > 100 ? '0.002 ETH' : '0.001 ETH'}
+                </span>
+              </div>
+              <div className="flex items-center justify-between text-sm mt-2">
+                <span className="text-white/70">Network:</span>
+                <span className="text-white/60">Somnia Testnet</span>
+              </div>
+              <div className="mt-3 text-xs text-white/50">
+                💡 Longer dreams require slightly more gas for storage
+              </div>
+            </div>
+          )}
         </div>
         
         <button
